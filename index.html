@@ -1,1 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Tools Hub - Free Online SEO Utilities</title>
+    <meta name="description" content="Free online SEO tools including Meta Tag Generator, Robots.txt Generator, Word Counter, and Keyword Density Checker.">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            background: #e9ecef;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .tool-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: none;
+        }
+
+        .tool-card.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #0b5ed7;
+        }
+
+        .output-container {
+            margin-top: 25px;
+        }
+
+        .output-box {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+            word-break: break-all;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: #f1f3f5;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        .stat-card p {
+            margin: 5px 0 0 0;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            border-top: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>SEO Tools Hub</h1>
+    <p>Free, Fast & Powerful Online SEO Utilities for Webmasters</p>
+</header>
+
+<div class="container">
+    <div class="nav-tabs">
+        <button class="tab-btn active" onclick="switchTab('meta-tool', this)">Meta Tag Generator</button>
+        <button class="tab-btn" onclick="switchTab('robots-tool', this)">Robots.txt Generator</button>
+        <button class="tab-btn" onclick="switchTab('counter-tool', this)">Word Counter</button>
+        <button class="tab-btn" onclick="switchTab('density-tool', this)">Keyword Density</button>
+    </div>
+
+    <!-- 1. META TAG GENERATOR -->
+    <div id="meta-tool" class="tool-card active">
+        <h2>Meta Tag Generator</h2>
+        <p>Create search engine friendly meta tags for your website.</p>
+        
+        <div class="form-group">
+            <label>Site Title</label>
+            <input type="text" id="meta-title" placeholder="Example: My Awesome Website">
+        </div>
+        <div class="form-group">
+            <label>Site Description</label>
+            <textarea id="meta-desc" rows="3" placeholder="Brief summary of your website content..."></textarea>
+        </div>
+        <div class="form-group">
+            <label>Keywords (Comma Separated)</label>
+            <input type="text" id="meta-keywords" placeholder="seo tools, online generator, webmaster">
+        </div>
+        <button class="btn-submit" onclick="generateMetaTags()">Generate Meta Tags</button>
+
+        <div class="output-container">
+            <label>Generated Code:</label>
+            <div class="output-box" id="meta-output"><!-- Meta tags will appear here --></div>
+        </div>
+    </div>
+
+    <!-- 2. ROBOTS.TXT GENERATOR -->
+    <div id="robots-tool" class="tool-card">
+        <h2>Robots.txt Generator</h2>
+        <p>Create a customized Robots.txt file to guide search engine crawlers.</p>
+
+        <div class="form-group">
+            <label>Default Robots Access</label>
+            <select id="robots-access">
+                <option value="Allow">Allow All Robots</option>
+                <option value="Disallow">Disallow All Robots</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Sitemap URL (Optional)</label>
+            <input type="text" id="robots-sitemap" placeholder="https://example.com/sitemap.xml">
+        </div>
+        <button class="btn-submit" onclick="generateRobotsTxt()">Generate Robots.txt</button>
+
+        <div class="output-container">
+            <label>Generated Content:</label>
+            <div class="output-box" id="robots-output"><!-- Robots.txt content will appear here --></div>
+        </div>
+    </div>
+
+    <!-- 3. WORD COUNTER -->
+    <div id="counter-tool" class="tool-card">
+        <h2>Word & Character Counter</h2>
+        <p>Analyze text length, word counts, and reading time instantly.</p>
+
+        <div class="form-group">
+            <textarea id="counter-text" rows="8" placeholder="Type or paste your content here..." oninput="analyzeText()"></textarea>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3 id="stat-words">0</h3>
+                <p>Words</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="stat-chars">0</h3>
+                <p>Characters</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="stat-sentences">0</h3>
+                <p>Sentences</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="stat-time">0 min</h3>
+                <p>Reading Time</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. KEYWORD DENSITY CHECKER -->
+    <div id="density-tool" class="tool-card">
+        <h2>Keyword Density Checker</h2>
+        <p>Check the frequency and percentage of keywords in your text.</p>
+
+        <div class="form-group">
+            <textarea id="density-text" rows="8" placeholder="Paste article content to analyze keyword density..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="checkDensity()">Check Keyword Density</button>
+
+        <div class="output-container">
+            <label>Density Analysis:</label>
+            <div class="output-box" id="density-output"><!-- Density analysis will appear here --></div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 SEO Tools Hub. All rights reserved.</p>
+</footer>
+
+<script>
+    function switchTab(toolId, btnElement) {
+        document.querySelectorAll('.tool-card').forEach(card => card.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        
+        document.getElementById(toolId).classList.add('active');
+        btnElement.classList.add('active');
+    }
+
+    // Meta Tag Generator Function
+    function generateMetaTags() {
+        const title = document.getElementById('meta-title').value;
+        const desc = document.getElementById('meta-desc').value;
+        const keywords = document.getElementById('meta-keywords').value;
+
+        const code = `<!-- Primary Meta Tags -->\n` +
+            `<title>${title}</title>\n` +
+            `<meta name="title" content="${title}">\n` +
+            `<meta name="description" content="${desc}">\n` +
+            `<meta name="keywords" content="${keywords}">\n` +
+            `<meta name="robots" content="index, follow">\n` +
+            `<meta name="viewport" content="width=device-width, initial-scale=1.0">`;
+
+        document.getElementById('meta-output').innerText = code;
+    }
+
+    // Robots.txt Generator Function
+    function generateRobotsTxt() {
+        const access = document.getElementById('robots-access').value;
+        const sitemap = document.getElementById('robots-sitemap').value;
+
+        let content = `User-agent: *\n`;
+        if (access === "Disallow") {
+            content += `Disallow: /\n`;
+        } else {
+            content += `Allow: /\n`;
+        }
+
+        if (sitemap.trim() !== "") {
+            content += `\nSitemap: ${sitemap}`;
+        }
+
+        document.getElementById('robots-output').innerText = content;
+    }
+
+    // Word Counter Function
+    function analyzeText() {
+        const text = document.getElementById('counter-text').value;
+        const trimmed = text.trim();
+        
+        const words = trimmed ? trimmed.split(/\s+/).length : 0;
+        const chars = text.length;
+        const sentences = trimmed ? text.split(/[.!?]+/).filter(Boolean).length : 0;
+        const readingTime = Math.ceil(words / 200);
+
+        document.getElementById('stat-words').innerText = words;
+        document.getElementById('stat-chars').innerText = chars;
+        document.getElementById('stat-sentences').innerText = sentences;
+        document.getElementById('stat-time').innerText = readingTime + " min";
+    }
+
+    // Keyword Density Checker Function
+    function checkDensity() {
+        const text = document.getElementById('density-text').value.toLowerCase();
+        if (!text.trim()) {
+            document.getElementById('density-output').innerText = "Please paste some text first.";
+            return;
+        }
+
+        const words = text.match(/\b\w+\b/g);
+        if (!words) return;
+
+        const totalWords = words.length;
+        const frequency = {};
+
+        words.forEach(word => {
+            if (word.length > 2) { // Ignore short words
+                frequency[word] = (frequency[word] || 0) + 1;
+            }
+        });
+
+        const sorted = Object.entries(frequency).sort((a, b) => b[1] - a[1]).slice(0, 10);
+
+        let result = `Total Words Analyzed: ${totalWords}\n\nTop Keywords Frequency:\n-------------------------------\n`;
+        sorted.forEach(([word, count]) => {
+            const density = ((count / totalWords) * 100).toFixed(2);
+            result += `${word.padEnd(15)} : ${count} times (${density}%)\n`;
+        });
+
+        document.getElementById('density-output').innerText = result;
+    }
+</script>
+
+</body>
+</html>

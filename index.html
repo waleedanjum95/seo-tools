@@ -167,11 +167,28 @@
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 25px 15px;
             margin-top: 40px;
             color: var(--secondary-color);
             font-size: 0.9rem;
             border-top: 1px solid #dee2e6;
+            background: #ffffff;
+        }
+
+        .footer-links {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -319,7 +336,6 @@
         </div>
         <div class="form-group">
             <label>Page Description</label>
-
             <textarea id="og-desc" rows="2" placeholder="Brief summary for social sharing..."></textarea>
         </div>
         <div class="form-group">
@@ -354,9 +370,40 @@
         </div>
     </div>
 
+    <!-- LEGAL PAGES -->
+    <div id="about-page" class="tool-card">
+        <h2>About Us</h2>
+        <p>Welcome to <strong>SEO Tools Hub</strong>. We offer free, fast, and high-quality web utilities designed to empower webmasters, digital marketers, and developers. Our mission is to provide simple yet powerful online tools without any hidden subscription fees.</p>
+    </div>
+
+    <div id="privacy-page" class="tool-card">
+        <h2>Privacy Policy</h2>
+        <p>At SEO Tools Hub, accessible from https://seotoolshub.netlify.app, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by SEO Tools Hub and how we use it.</p>
+        <h3>Cookies and Web Beacons</h3>
+        <p>SEO Tools Hub uses 'cookies' to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to our website.</p>
+    </div>
+
+    <div id="terms-page" class="tool-card">
+        <h2>Terms & Conditions</h2>
+        <p>By accessing this website, you agree to be bound by these website Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws.</p>
+        <p>All utilities provided on SEO Tools Hub are offered "as is" for informational and productivity purposes.</p>
+    </div>
+
+    <div id="contact-page" class="tool-card">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or suggestions regarding our tools or privacy policies, please feel free to reach out to us at:</p>
+        <p><strong>Email:</strong> support@seotoolshub.com</p>
+    </div>
+
 </div>
 
 <footer>
+    <div class="footer-links">
+        <a onclick="showLegalPage('about-page')">About Us</a> | 
+        <a onclick="showLegalPage('privacy-page')">Privacy Policy</a> | 
+        <a onclick="showLegalPage('terms-page')">Terms & Conditions</a> | 
+        <a onclick="showLegalPage('contact-page')">Contact Us</a>
+    </div>
     <p>&copy; 2026 SEO Tools Hub. All rights reserved.</p>
 </footer>
 
@@ -366,7 +413,15 @@
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         
         document.getElementById(toolId).classList.add('active');
-        btnElement.classList.add('active');
+        if(btnElement) btnElement.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showLegalPage(pageId) {
+        document.querySelectorAll('.tool-card').forEach(card => card.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     // 1. Meta Tag Generator
@@ -486,37 +541,4 @@
 
         const ogCode = `<!-- Open Graph / Facebook -->\n` +
             `<meta property="og:type" content="website">\n` +
-            `<meta property="og:url" content="${url}">\n` +
-            `<meta property="og:title" content="${title}">\n` +
-            `<meta property="og:description" content="${desc}">\n` +
-            `<meta property="og:image" content="${image}">\n\n` +
-            `<!-- Twitter -->\n` +
-            `<meta property="twitter:card" content="summary_large_image">\n` +
-            `<meta property="twitter:url" content="${url}">\n` +
-            `<meta property="twitter:title" content="${title}">\n` +
-            `<meta property="twitter:description" content="${desc}">\n` +
-            `<meta property="twitter:image" content="${image}">`;
-
-        document.getElementById('og-output').innerText = ogCode;
-    }
-
-    // 7. HTML/CSS Minifier
-    function minifyCode() {
-        const rawCode = document.getElementById('minifier-input').value;
-        if (!rawCode.trim()) {
-            document.getElementById('minifier-output').innerText = "Please paste code to minify.";
-            return;
-        }
-
-        const minified = rawCode
-            .replace(/\/\*[\s\S]*?\*\/|([^:]|^)\/\/.*/g, '') // remove comments
-            .replace(/\s+/g, ' ') // collapse spaces
-            .replace(/\s*([{}:;,])\s*/g, '$1') // remove space around selectors/rules
-            .trim();
-
-        document.getElementById('minifier-output').innerText = minified;
-    }
-</script>
-
-</body>
-</html>
+            `<meta property="og:url" content="

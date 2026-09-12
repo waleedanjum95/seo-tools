@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEO Tools Hub - Free Online SEO Utilities</title>
-    <meta name="description" content="Free online SEO tools including Meta Tag Generator, Robots.txt Generator, Word Counter, and Keyword Density Checker.">
+    <meta name="description" content="Free online SEO tools including Meta Tag Generator, Robots.txt Generator, Word Counter, Keyword Density Checker, Sitemap Generator, Open Graph Generator, and Code Minifier.">
     <style>
         :root {
             --primary-color: #0d6efd;
@@ -58,7 +58,7 @@
         .tab-btn {
             background: #e9ecef;
             border: none;
-            padding: 12px 20px;
+            padding: 10px 16px;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
@@ -184,10 +184,13 @@
 
 <div class="container">
     <div class="nav-tabs">
-        <button class="tab-btn active" onclick="switchTab('meta-tool', this)">Meta Tag Generator</button>
-        <button class="tab-btn" onclick="switchTab('robots-tool', this)">Robots.txt Generator</button>
+        <button class="tab-btn active" onclick="switchTab('meta-tool', this)">Meta Tag</button>
+        <button class="tab-btn" onclick="switchTab('robots-tool', this)">Robots.txt</button>
         <button class="tab-btn" onclick="switchTab('counter-tool', this)">Word Counter</button>
         <button class="tab-btn" onclick="switchTab('density-tool', this)">Keyword Density</button>
+        <button class="tab-btn" onclick="switchTab('sitemap-tool', this)">XML Sitemap</button>
+        <button class="tab-btn" onclick="switchTab('og-tool', this)">OG Generator</button>
+        <button class="tab-btn" onclick="switchTab('minifier-tool', this)">Code Minifier</button>
     </div>
 
     <!-- 1. META TAG GENERATOR -->
@@ -283,6 +286,74 @@
             <div class="output-box" id="density-output"><!-- Density analysis will appear here --></div>
         </div>
     </div>
+
+    <!-- 5. XML SITEMAP GENERATOR -->
+    <div id="sitemap-tool" class="tool-card">
+        <h2>XML Sitemap Generator</h2>
+        <p>Generate basic XML sitemap structures for your website URLs.</p>
+
+        <div class="form-group">
+            <label>Website Base URL</label>
+            <input type="text" id="sitemap-url" placeholder="https://example.com">
+        </div>
+        <div class="form-group">
+            <label>Page URLs (One per line)</label>
+            <textarea id="sitemap-paths" rows="5" placeholder="/about&#10;/contact&#10;/services"></textarea>
+        </div>
+        <button class="btn-submit" onclick="generateSitemap()">Generate XML Sitemap</button>
+
+        <div class="output-container">
+            <label>Generated XML:</label>
+            <div class="output-box" id="sitemap-output"><!-- Sitemap will appear here --></div>
+        </div>
+    </div>
+
+    <!-- 6. OPEN GRAPH GENERATOR -->
+    <div id="og-tool" class="tool-card">
+        <h2>Open Graph Meta Generator</h2>
+        <p>Generate social media meta tags for rich social sharing previews.</p>
+
+        <div class="form-group">
+            <label>Page Title</label>
+            <input type="text" id="og-title" placeholder="Awesome Page Title">
+        </div>
+        <div class="form-group">
+            <label>Page Description</label>
+
+            <textarea id="og-desc" rows="2" placeholder="Brief summary for social sharing..."></textarea>
+        </div>
+        <div class="form-group">
+            <label>Image URL</label>
+            <input type="text" id="og-image" placeholder="https://example.com/image.jpg">
+        </div>
+        <div class="form-group">
+            <label>Canonical Page URL</label>
+            <input type="text" id="og-url" placeholder="https://example.com/page">
+        </div>
+        <button class="btn-submit" onclick="generateOG()">Generate OG Tags</button>
+
+        <div class="output-container">
+            <label>Generated Code:</label>
+            <div class="output-box" id="og-output"><!-- OG tags will appear here --></div>
+        </div>
+    </div>
+
+    <!-- 7. HTML/CSS MINIFIER -->
+    <div id="minifier-tool" class="tool-card">
+        <h2>HTML / CSS Minifier</h2>
+        <p>Remove extra spaces and line breaks to compress your web code.</p>
+
+        <div class="form-group">
+            <textarea id="minifier-input" rows="8" placeholder="Paste your raw HTML or CSS code here..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="minifyCode()">Minify Code</button>
+
+        <div class="output-container">
+            <label>Minified Code:</label>
+            <div class="output-box" id="minifier-output"><!-- Compressed code will appear here --></div>
+        </div>
+    </div>
+
 </div>
 
 <footer>
@@ -298,7 +369,7 @@
         btnElement.classList.add('active');
     }
 
-    // Meta Tag Generator Function
+    // 1. Meta Tag Generator
     function generateMetaTags() {
         const title = document.getElementById('meta-title').value;
         const desc = document.getElementById('meta-desc').value;
@@ -315,7 +386,7 @@
         document.getElementById('meta-output').innerText = code;
     }
 
-    // Robots.txt Generator Function
+    // 2. Robots.txt Generator
     function generateRobotsTxt() {
         const access = document.getElementById('robots-access').value;
         const sitemap = document.getElementById('robots-sitemap').value;
@@ -334,7 +405,7 @@
         document.getElementById('robots-output').innerText = content;
     }
 
-    // Word Counter Function
+    // 3. Word Counter
     function analyzeText() {
         const text = document.getElementById('counter-text').value;
         const trimmed = text.trim();
@@ -350,7 +421,7 @@
         document.getElementById('stat-time').innerText = readingTime + " min";
     }
 
-    // Keyword Density Checker Function
+    // 4. Keyword Density Checker
     function checkDensity() {
         const text = document.getElementById('density-text').value.toLowerCase();
         if (!text.trim()) {
@@ -365,7 +436,7 @@
         const frequency = {};
 
         words.forEach(word => {
-            if (word.length > 2) { // Ignore short words
+            if (word.length > 2) {
                 frequency[word] = (frequency[word] || 0) + 1;
             }
         });
@@ -379,6 +450,71 @@
         });
 
         document.getElementById('density-output').innerText = result;
+    }
+
+    // 5. XML Sitemap Generator
+    function generateSitemap() {
+        const baseUrl = document.getElementById('sitemap-url').value.trim().replace(/\/+$/, "");
+        const pathsText = document.getElementById('sitemap-paths').value;
+        const paths = pathsText.split('\n').filter(p => p.trim() !== "");
+
+        if (!baseUrl) {
+            document.getElementById('sitemap-output').innerText = "Please enter a Base URL.";
+            return;
+        }
+
+        const date = new Date().toISOString().split('T')[0];
+        let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+        
+        xml += ` <url>\n <loc>${baseUrl}/</loc>\n <lastmod>${date}</lastmod>\n <priority>1.00</priority>\n </url>\n`;
+
+        paths.forEach(path => {
+            const formattedPath = path.trim().startsWith('/') ? path.trim() : '/' + path.trim();
+            xml += ` <url>\n <loc>${baseUrl}${formattedPath}</loc>\n <lastmod>${date}</lastmod>\n <priority>0.80</priority>\n </url>\n`;
+        });
+
+        xml += `</urlset>`;
+        document.getElementById('sitemap-output').innerText = xml;
+    }
+
+    // 6. Open Graph Generator
+    function generateOG() {
+        const title = document.getElementById('og-title').value;
+        const desc = document.getElementById('og-desc').value;
+        const image = document.getElementById('og-image').value;
+        const url = document.getElementById('og-url').value;
+
+        const ogCode = `<!-- Open Graph / Facebook -->\n` +
+            `<meta property="og:type" content="website">\n` +
+            `<meta property="og:url" content="${url}">\n` +
+            `<meta property="og:title" content="${title}">\n` +
+            `<meta property="og:description" content="${desc}">\n` +
+            `<meta property="og:image" content="${image}">\n\n` +
+            `<!-- Twitter -->\n` +
+            `<meta property="twitter:card" content="summary_large_image">\n` +
+            `<meta property="twitter:url" content="${url}">\n` +
+            `<meta property="twitter:title" content="${title}">\n` +
+            `<meta property="twitter:description" content="${desc}">\n` +
+            `<meta property="twitter:image" content="${image}">`;
+
+        document.getElementById('og-output').innerText = ogCode;
+    }
+
+    // 7. HTML/CSS Minifier
+    function minifyCode() {
+        const rawCode = document.getElementById('minifier-input').value;
+        if (!rawCode.trim()) {
+            document.getElementById('minifier-output').innerText = "Please paste code to minify.";
+            return;
+        }
+
+        const minified = rawCode
+            .replace(/\/\*[\s\S]*?\*\/|([^:]|^)\/\/.*/g, '') // remove comments
+            .replace(/\s+/g, ' ') // collapse spaces
+            .replace(/\s*([{}:;,])\s*/g, '$1') // remove space around selectors/rules
+            .trim();
+
+        document.getElementById('minifier-output').innerText = minified;
     }
 </script>
 

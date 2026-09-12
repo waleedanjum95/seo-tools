@@ -3,189 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO Tools Hub - Free Online Webmaster Tools</title>
+    <title>SEO Tools Hub - Free Webmaster Tools</title>
     
-    <!-- Google AdSense Script (DO NOT REMOVE) -->
+    <!-- Google AdSense Script (Verified & Active) -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5281431128852435" crossorigin="anonymous"></script>
 
     <style>
         * { box-sizing: border-box; }
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
             margin: 0;
-            padding: 0;
-            background-color: #f4f6f9;
-            color: #333;
+            padding: 20px;
         }
-        header {
-            background: #1a73e8;
-            color: white;
-            padding: 25px 20px;
+        .header {
             text-align: center;
+            padding: 20px 0 30px;
         }
-        header h1 { margin: 0; font-size: 28px; }
-        header p { margin: 8px 0 0 0; opacity: 0.9; }
-
+        .header h1 {
+            font-size: 32px;
+            color: #0d6efd;
+            margin-bottom: 5px;
+        }
+        .header p {
+            color: #6c757d;
+            font-size: 16px;
+        }
         .container {
-            max-width: 1000px;
-            margin: 25px auto;
-            padding: 0 15px;
+            max-width: 900px;
+            margin: 0 auto;
         }
-
-        .tool-card {
+        .card {
             background: #ffffff;
-            border-radius: 10px;
-            padding: 25px;
+            border: 1px solid #e3e6f0;
+            border-radius: 8px;
+            padding: 20px;
             margin-bottom: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
         }
-        .tool-card h2 {
-            margin-top: 0;
-            color: #1a73e8;
+        .card h2 {
             font-size: 20px;
-            border-bottom: 2px solid #e8f0fe;
-            padding-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
         }
-
-        .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 6px; font-weight: bold; font-size: 14px; }
-        input[type="text"], textarea, select {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
             font-size: 14px;
         }
-        button.btn {
-            background-color: #1a73e8;
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        button {
+            background-color: #0d6efd;
             color: white;
-            padding: 10px 18px;
             border: none;
+            padding: 10px 18px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 15px;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 14px;
+            margin-right: 5px;
+            margin-bottom: 5px;
         }
-        button.btn:hover { background-color: #1557b0; }
+        button:hover {
+            background-color: #0b5ed7;
+        }
+        .result-box {
+            background-color: #f1f3f5;
+            padding: 12px;
+            border-radius: 6px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-break: break-all;
+            min-height: 40px;
+            border: 1px solid #dee2e6;
+        }
 
         /* Footer Styling */
         footer {
-            margin-top: 40px;
             text-align: center;
-            padding: 25px 15px;
-            background: #ffffff;
-            border-top: 1px solid #e0e0e0;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #dee2e6;
+            color: #6c757d;
             font-size: 14px;
         }
         footer a {
-            color: #1a73e8;
+            color: #0d6efd;
             text-decoration: none;
             margin: 0 8px;
             font-weight: 500;
         }
-        footer a:hover { text-decoration: underline; }
+        footer a:hover {
+            text-decoration: underline;
+        }
 
-        /* Modal Box Styling */
+        /* Modal Overlay & Content Box */
         .modal-overlay {
             display: none;
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 10000;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 99999;
             justify-content: center;
             align-items: center;
             padding: 20px;
         }
         .modal-box {
             background: #ffffff;
-            border-radius: 10px;
-            max-width: 600px;
+            border-radius: 8px;
+            max-width: 650px;
             width: 100%;
-            max-height: 80vh;
+            max-height: 85vh;
             overflow-y: auto;
             padding: 25px;
             position: relative;
             line-height: 1.6;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
         .close-btn {
             position: absolute;
             top: 15px; right: 15px;
             border: none;
-            background: #eee;
+            background: #e9ecef;
             border-radius: 50%;
             width: 30px; height: 30px;
             cursor: pointer;
             font-weight: bold;
+            color: #495057;
         }
+        .close-btn:hover { background: #dee2e6; }
     </style>
 </head>
 <body>
 
-    <header>
+    <div class="header">
         <h1>SEO Tools Hub</h1>
-        <p>Free, fast, and easy-to-use online webmaster and SEO tools</p>
-    </header>
+        <p>Your All-in-One Online Webmaster & SEO Tools Platform</p>
+    </div>
 
     <div class="container">
 
         <!-- Tool 1: Meta Tag Generator -->
-        <div class="tool-card">
+        <div class="card">
             <h2>1. Meta Tag Generator</h2>
-            <div class="form-group">
-                <label for="siteTitle">Site Title</label>
-                <input type="text" id="siteTitle" placeholder="Example: My Awesome Website">
-            </div>
-            <div class="form-group">
-                <label for="siteDesc">Site Description</label>
-                <textarea id="siteDesc" rows="2" placeholder="Brief summary of your website content..."></textarea>
-            </div>
-            <div class="form-group">
-                <label for="siteKeywords">Keywords (Comma Separated)</label>
-                <input type="text" id="siteKeywords" placeholder="seo tools, online generator, webmaster">
-            </div>
-            <button class="btn" onclick="generateMeta()">Generate Meta Tags</button>
-            <div class="form-group" style="margin-top:15px;">
-                <label>Generated Code:</label>
-                <textarea id="outputMeta" rows="4" readonly style="background:#222; color:#00ffcc; font-family:monospace;"></textarea>
-            </div>
+            <label>Site Title</label>
+            <input type="text" id="siteTitle" placeholder="Example: My Awesome Website">
+            
+            <label>Site Description</label>
+            <textarea id="siteDesc" rows="3" placeholder="Brief summary of your website content..."></textarea>
+            
+            <label>Keywords (Comma Separated)</label>
+            <input type="text" id="siteKeywords" placeholder="seo tools, online generator, webmaster">
+            
+            <button onclick="generateMeta()">Generate Meta Tags</button>
+            
+            <label style="margin-top:15px;">Generated Code:</label>
+            <div id="outputMeta" class="result-box">Click button to generate code...</div>
         </div>
 
         <!-- Tool 2: Word & Character Counter -->
-        <div class="tool-card">
+        <div class="card">
             <h2>2. Word & Character Counter</h2>
-            <div class="form-group">
-                <label for="textInput">Enter your text below:</label>
-                <textarea id="textInput" rows="4" oninput="countText()" placeholder="Type or paste your text here..."></textarea>
-            </div>
+            <label>Enter your text below:</label>
+            <textarea id="counterInput" rows="4" oninput="countWords()" placeholder="Type or paste your content here..."></textarea>
             <p><strong>Words:</strong> <span id="wordCount">0</span> | <strong>Characters:</strong> <span id="charCount">0</span></p>
         </div>
 
         <!-- Tool 3: Password Generator -->
-        <div class="tool-card">
-            <h2>3. Secure Password Generator</h2>
-            <div class="form-group">
-                <label for="passLength">Password Length</label>
-                <input type="number" id="passLength" value="12" min="6" max="32">
-            </div>
-            <button class="btn" onclick="generatePassword()">Generate Password</button>
-            <div class="form-group" style="margin-top:15px;">
-                <label>Result:</label>
-                <input type="text" id="passResult" readonly style="font-weight:bold; font-family:monospace; background:#eef2f7;">
-            </div>
+        <div class="card">
+            <h2>3. Password Generator</h2>
+            <label>Password Length (6 to 32)</label>
+            <input type="number" id="passLength" value="12" min="6" max="32">
+            <button onclick="generatePassword()">Generate Password</button>
+            <label style="margin-top:15px;">Generated Password:</label>
+            <div id="passOutput" class="result-box">Your password will appear here...</div>
         </div>
 
-        <!-- Tool 4: Case Converter -->
-        <div class="tool-card">
+        <!-- Tool 4: Text Case Converter -->
+        <div class="card">
             <h2>4. Text Case Converter</h2>
-            <div class="form-group">
-                <label for="caseInput">Text:</label>
-                <textarea id="caseInput" rows="3" placeholder="Enter text to convert..."></textarea>
-            </div>
-            <button class="btn" onclick="convertCase('upper')">UPPERCASE</button>
-            <button class="btn" onclick="convertCase('lower')">lowercase</button>
-            <button class="btn" onclick="convertCase('title')">Title Case</button>
+            <label>Enter Text:</label>
+            <textarea id="caseInput" rows="3" placeholder="Enter text to transform..."></textarea>
+            <button onclick="convertCase('upper')">UPPERCASE</button>
+            <button onclick="convertCase('lower')">lowercase</button>
+            <button onclick="convertCase('title')">Title Case</button>
+        </div>
+
+        <!-- Tool 5: HTML Minifier -->
+        <div class="card">
+            <h2>5. HTML Minifier / Code Compressor</h2>
+            <label>Paste Uncompressed HTML Code:</label>
+            <textarea id="htmlInput" rows="4" placeholder="<div class='example'>\n <p>Hello World</p>\n</div>"></textarea>
+            <button onclick="minifyHTML()">Minify Code</button>
+            <label style="margin-top:15px;">Minified Code:</label>
+            <div id="htmlOutput" class="result-box">Minified code will appear here...</div>
+        </div>
+
+        <!-- Tool 6: URL Encoder / Decoder -->
+        <div class="card">
+            <h2>6. URL Encoder / Decoder</h2>
+            <label>Enter URL or Text:</label>
+            <input type="text" id="urlInput" placeholder="https://example.com/query?name=test">
+            <button onclick="encodeURL()">Encode URL</button>
+            <button onclick="decodeURL()">Decode URL</button>
+            <label style="margin-top:15px;">Result:</label>
+            <div id="urlOutput" class="result-box">Result will appear here...</div>
+        </div>
+
+        <!-- Tool 7: QR Code Generator -->
+        <div class="card">
+            <h2>7. QR Code Generator</h2>
+            <label>Enter URL or Text for QR Code:</label>
+            <input type="text" id="qrInput" placeholder="https://seotoolshub.netlify.app">
+            <button onclick="generateQR()">Generate QR Code</button>
+            <div id="qrOutput" style="margin-top:15px; text-align:center;"></div>
         </div>
 
     </div>
@@ -196,10 +240,10 @@
         <a href="javascript:void(0)" onclick="openModal('privacy')">Privacy Policy</a> | 
         <a href="javascript:void(0)" onclick="openModal('terms')">Terms & Conditions</a> | 
         <a href="javascript:void(0)" onclick="openModal('contact')">Contact Us</a>
-        <p>© 2026 SEO Tools Hub. All rights reserved.</p>
+        <p style="margin-top:15px;">© 2026 SEO Tools Hub. All rights reserved.</p>
     </footer>
 
-    <!-- Modal Popup Box -->
+    <!-- Modal Box for Footer Links -->
     <div id="infoModal" class="modal-overlay">
         <div class="modal-box">
             <button class="close-btn" onclick="closeModal()">&times;</button>
@@ -213,12 +257,13 @@
             const title = document.getElementById('siteTitle').value || 'My Website';
             const desc = document.getElementById('siteDesc').value || '';
             const keywords = document.getElementById('siteKeywords').value || '';
-            document.getElementById('outputMeta').value = `<meta name="title" content="${title}">\n<meta name="description" content="${desc}">\n<meta name="keywords" content="${keywords}">`;
+            const code = `<meta name="title" content="${title}">\n<meta name="description" content="${desc}">\n<meta name="keywords" content="${keywords}">`;
+            document.getElementById('outputMeta').innerText = code;
         }
 
-        // Tool 2: Word & Character Counter
-        function countText() {
-            const text = document.getElementById('textInput').value.trim();
+        // Tool 2: Word Counter
+        function countWords() {
+            const text = document.getElementById('counterInput').value.trim();
             const words = text ? text.split(/\s+/).length : 0;
             document.getElementById('wordCount').innerText = words;
             document.getElementById('charCount').innerText = text.length;
@@ -232,7 +277,7 @@
             for (let i = 0; i < len; i++) {
                 pass += chars.charAt(Math.floor(Math.random() * chars.length));
             }
-            document.getElementById('passResult').value = pass;
+            document.getElementById('passOutput').innerText = pass;
         }
 
         // Tool 4: Case Converter
@@ -241,36 +286,63 @@
             if (type === 'upper') input.value = input.value.toUpperCase();
             if (type === 'lower') input.value = input.value.toLowerCase();
             if (type === 'title') {
-                input.value = input.value.toLowerCase().replace(/(?:^|\s)\w/g, function(match) {
-                    return match.toUpperCase();
-                });
+                input.value = input.value.toLowerCase().replace(/(?:^|\s)\w/g, match => match.toUpperCase());
             }
         }
 
-        // Pages Data for Modals
+        // Tool 5: HTML Minifier
+        function minifyHTML() {
+            let html = document.getElementById('htmlInput').value;
+            let minified = html.replace(/\s+/g, ' ').replace(/>\s+</g, '><').trim();
+            document.getElementById('htmlOutput').innerText = minified;
+        }
+
+        // Tool 6: URL Encoder/Decoder
+        function encodeURL() {
+            let val = document.getElementById('urlInput').value;
+            document.getElementById('urlOutput').innerText = encodeURIComponent(val);
+        }
+        function decodeURL() {
+            let val = document.getElementById('urlInput').value;
+            try {
+                document.getElementById('urlOutput').innerText = decodeURIComponent(val);
+            } catch(e) {
+                document.getElementById('urlOutput').innerText = "Invalid URL encoding";
+            }
+        }
+
+        // Tool 7: QR Code Generator
+        function generateQR() {
+            let val = document.getElementById('qrInput').value.trim();
+            if(!val) { alert("Please enter text or URL"); return; }
+            let qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(val)}`;
+            document.getElementById('qrOutput').innerHTML = `<img src="${qrUrl}" alt="QR Code" style="border:1px solid #ccc; padding:5px; background:#fff;">`;
+        }
+
+        // Modal Content Data (Updated with Details)
         const pagesData = {
             about: `
-                <h2 style="color:#1a73e8;">About Us</h2>
-                <p>Welcome to <strong>SEO Tools Hub</strong>, managed by <strong>Waleed Anjum</strong>. We are dedicated to providing fast, reliable, and user-friendly web utilities designed specifically for webmasters, digital marketers, and developers.</p>
-                <p>Our tools help streamline search engine optimization tasks, meta tag generation, and text analysis without requiring advanced technical skills or software installation.</p>
+                <h2 style="color:#0d6efd;">About Us</h2>
+                <p>Welcome to <strong>SEO Tools Hub</strong>, owned and operated by <strong>Waleed Anjum</strong>. We provide free, fast, and lightweight webmaster utilities to help site owners, marketers, and developers optimize their online presence.</p>
+                <p>Our tools require no installation, registration, or software downloads. Everything runs instantly in your web browser.</p>
             `,
             privacy: `
-                <h2 style="color:#1a73e8;">Privacy Policy</h2>
-                <p>At <strong>SEO Tools Hub</strong> (seotoolshub.netlify.app), visitor privacy is extremely important to us. This Privacy Policy outlines the types of information collected and how it is used.</p>
+                <h2 style="color:#0d6efd;">Privacy Policy</h2>
+                <p>At <strong>SEO Tools Hub</strong> (seotoolshub.netlify.app), visitor privacy is one of our top priorities. This Privacy Policy details the types of information collected and recorded by our platform.</p>
                 <h3>Log Files & Cookies</h3>
-                <p>SEO Tools Hub uses standard log files and cookies to optimize user experience and analyze general traffic trends.</p>
+                <p>Like most web platforms, SEO Tools Hub uses log files and standard cookies to improve user experience and monitor overall traffic patterns.</p>
                 <h3>Google DoubleClick DART Cookie</h3>
-                <p>Google is a third-party vendor on our site. It uses cookies (DART cookies) to serve ads to our site visitors based upon their visit to our site and other internet pages.</p>
+                <p>Google is a third-party vendor on our site. It uses DART cookies to serve ads to our visitors based upon their visit to our website and other sites across the internet.</p>
             `,
             terms: `
-                <h2 style="color:#1a73e8;">Terms and Conditions</h2>
-                <p>By accessing and using <strong>SEO Tools Hub</strong>, you accept and agree to be bound by the terms and provisions of this agreement.</p>
-                <h3>Use License</h3>
-                <p>Permission is granted to use the tools provided on SEO Tools Hub for personal or commercial website optimization purposes.</p>
+                <h2 style="color:#0d6efd;">Terms & Conditions</h2>
+                <p>By using <strong>SEO Tools Hub</strong>, you agree to comply with our Terms of Service. All tools are free to use for personal or commercial optimization purposes.</p>
+                <h3>Disclaimer</h3>
+                <p>All utilities are provided "as is" without warranty of any kind. We are not responsible for any issues resulting from the use of generated codes or URLs.</p>
             `,
             contact: `
-                <h2 style="color:#1a73e8;">Contact Us</h2>
-                <p>If you have any questions or feedback regarding SEO Tools Hub, feel free to reach out to us:</p>
+                <h2 style="color:#0d6efd;">Contact Us</h2>
+                <p>Have questions, feedback, or need support? Reach out to us directly:</p>
                 <ul style="list-style:none; padding:0; line-height:2;">
                     <li><strong>Owner:</strong> Waleed Anjum</li>
                     <li><strong>Email:</strong> <a href="mailto:waleedanjum.18@gmail.com">waleedanjum.18@gmail.com</a></li>

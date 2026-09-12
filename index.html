@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO Tools Hub - Free Webmaster Tools</title>
+    <title>SEO Tools Hub - Free Webmaster & SEO Tools</title>
     
-    <!-- Google AdSense Script (Verified & Active) -->
+    <!-- Google AdSense Script (Active) -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5281431128852435" crossorigin="anonymous"></script>
 
     <style>
@@ -64,6 +64,12 @@
             margin-bottom: 15px;
             font-size: 14px;
         }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
         button {
             background-color: #0d6efd;
             color: white;
@@ -73,8 +79,6 @@
             cursor: pointer;
             font-weight: 600;
             font-size: 14px;
-            margin-right: 5px;
-            margin-bottom: 5px;
         }
         button:hover {
             background-color: #0b5ed7;
@@ -109,7 +113,7 @@
             text-decoration: underline;
         }
 
-        /* Modal Overlay & Content Box */
+        /* Modal Overlay & Box */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -151,7 +155,7 @@
 
     <div class="header">
         <h1>SEO Tools Hub</h1>
-        <p>Your All-in-One Online Webmaster & SEO Tools Platform</p>
+        <p>Your Powerful All-in-One Online Webmaster Suite</p>
     </div>
 
     <div class="container">
@@ -163,7 +167,7 @@
             <input type="text" id="siteTitle" placeholder="Example: My Awesome Website">
             
             <label>Site Description</label>
-            <textarea id="siteDesc" rows="3" placeholder="Brief summary of your website content..."></textarea>
+            <textarea id="siteDesc" rows="2" placeholder="Brief summary of your website content..."></textarea>
             
             <label>Keywords (Comma Separated)</label>
             <input type="text" id="siteKeywords" placeholder="seo tools, online generator, webmaster">
@@ -174,59 +178,98 @@
             <div id="outputMeta" class="result-box">Click button to generate code...</div>
         </div>
 
-        <!-- Tool 2: Word & Character Counter -->
+        <!-- Tool 2: Open Graph (Social Media) Generator -->
         <div class="card">
-            <h2>2. Word & Character Counter</h2>
-            <label>Enter your text below:</label>
-            <textarea id="counterInput" rows="4" oninput="countWords()" placeholder="Type or paste your content here..."></textarea>
-            <p><strong>Words:</strong> <span id="wordCount">0</span> | <strong>Characters:</strong> <span id="charCount">0</span></p>
+            <h2>2. Open Graph Tag Generator (Facebook/LinkedIn)</h2>
+            <label>Page Title</label>
+            <input type="text" id="ogTitle" placeholder="Article or Page Title">
+            <label>Image URL (OG Image)</label>
+            <input type="text" id="ogImage" placeholder="https://example.com/image.jpg">
+            <label>Page URL</label>
+            <input type="text" id="ogUrl" placeholder="https://example.com/page">
+            <button onclick="generateOG()">Generate OG Tags</button>
+            <label style="margin-top:15px;">Result:</label>
+            <div id="ogOutput" class="result-box">Generated Open Graph code will appear here...</div>
         </div>
 
-        <!-- Tool 3: Password Generator -->
+        <!-- Tool 3: Word, Sentence & Reading Time Counter -->
         <div class="card">
-            <h2>3. Password Generator</h2>
-            <label>Password Length (6 to 32)</label>
-            <input type="number" id="passLength" value="12" min="6" max="32">
-            <button onclick="generatePassword()">Generate Password</button>
+            <h2>3. Advanced Text & Reading Time Analyzer</h2>
+            <label>Enter or Paste Your Article:</label>
+            <textarea id="analyzerInput" rows="5" oninput="analyzeText()" placeholder="Paste text to analyze..."></textarea>
+            <p>
+                <strong>Words:</strong> <span id="wCount">0</span> | 
+                <strong>Characters:</strong> <span id="cCount">0</span> | 
+                <strong>Sentences:</strong> <span id="sCount">0</span> | 
+                <strong>Est. Read Time:</strong> <span id="rTime">0 min</span>
+            </p>
+        </div>
+
+        <!-- Tool 4: Password Generator -->
+        <div class="card">
+            <h2>4. Secure Password Generator</h2>
+            <label>Password Length (6 to 64)</label>
+            <input type="number" id="passLength" value="16" min="6" max="64">
+            <button onclick="generatePassword()">Generate Strong Password</button>
             <label style="margin-top:15px;">Generated Password:</label>
-            <div id="passOutput" class="result-box">Your password will appear here...</div>
+            <div id="passOutput" class="result-box">Your secure password will appear here...</div>
         </div>
 
-        <!-- Tool 4: Text Case Converter -->
+        <!-- Tool 5: Multi-Format Text Converter -->
         <div class="card">
-            <h2>4. Text Case Converter</h2>
+            <h2>5. Text Case & Formatting Converter</h2>
             <label>Enter Text:</label>
-            <textarea id="caseInput" rows="3" placeholder="Enter text to transform..."></textarea>
-            <button onclick="convertCase('upper')">UPPERCASE</button>
-            <button onclick="convertCase('lower')">lowercase</button>
-            <button onclick="convertCase('title')">Title Case</button>
+            <textarea id="caseInput" rows="3" placeholder="Type or paste text..."></textarea>
+            <div class="btn-group">
+                <button onclick="convertCase('upper')">UPPERCASE</button>
+                <button onclick="convertCase('lower')">lowercase</button>
+                <button onclick="convertCase('title')">Title Case</button>
+                <button onclick="convertCase('clean')">Remove Extra Spaces</button>
+            </div>
         </div>
 
-        <!-- Tool 5: HTML Minifier -->
+        <!-- Tool 6: HTML Minifier & Cleaner -->
         <div class="card">
-            <h2>5. HTML Minifier / Code Compressor</h2>
-            <label>Paste Uncompressed HTML Code:</label>
-            <textarea id="htmlInput" rows="4" placeholder="<div class='example'>\n <p>Hello World</p>\n</div>"></textarea>
-            <button onclick="minifyHTML()">Minify Code</button>
-            <label style="margin-top:15px;">Minified Code:</label>
-            <div id="htmlOutput" class="result-box">Minified code will appear here...</div>
+            <h2>6. HTML Minifier & Code Optimizer</h2>
+            <label>Paste Raw HTML Code:</label>
+            <textarea id="htmlInput" rows="4" placeholder="<div>\n <p>Sample Code</p>\n</div>"></textarea>
+            <button onclick="minifyHTML()">Minify HTML</button>
+            <label style="margin-top:15px;">Compressed Code:</label>
+            <div id="htmlOutput" class="result-box">Minified output will appear here...</div>
         </div>
 
-        <!-- Tool 6: URL Encoder / Decoder -->
+        <!-- Tool 7: URL Encoder & Decoder -->
         <div class="card">
-            <h2>6. URL Encoder / Decoder</h2>
-            <label>Enter URL or Text:</label>
-            <input type="text" id="urlInput" placeholder="https://example.com/query?name=test">
-            <button onclick="encodeURL()">Encode URL</button>
-            <button onclick="decodeURL()">Decode URL</button>
+            <h2>7. URL Encoder & Decoder</h2>
+            <label>Enter URL or Query String:</label>
+            <input type="text" id="urlInput" placeholder="https://seotoolshub.netlify.app?test=1">
+            <div class="btn-group">
+                <button onclick="encodeURL()">Encode URL</button>
+                <button onclick="decodeURL()">Decode URL</button>
+            </div>
             <label style="margin-top:15px;">Result:</label>
             <div id="urlOutput" class="result-box">Result will appear here...</div>
         </div>
 
-        <!-- Tool 7: QR Code Generator -->
+        <!-- Tool 8: Robots.txt File Generator -->
         <div class="card">
-            <h2>7. QR Code Generator</h2>
-            <label>Enter URL or Text for QR Code:</label>
+            <h2>8. Robots.txt Generator</h2>
+            <label>Default User Agent Policy</label>
+            <select id="robotsPolicy">
+                <option value="allow">Allow All Search Engines</option>
+                <option value="disallow">Block All Search Engines</option>
+            </select>
+            <label>Sitemap URL (Optional)</label>
+            <input type="text" id="sitemapUrl" placeholder="https://example.com/sitemap.xml">
+            <button onclick="generateRobots()">Generate Robots.txt</button>
+            <label style="margin-top:15px;">Robots.txt Content:</label>
+            <div id="robotsOutput" class="result-box">Generated robots.txt content will appear here...</div>
+        </div>
+
+        <!-- Tool 9: High-Resolution QR Code Generator -->
+        <div class="card">
+            <h2>9. QR Code Generator</h2>
+            <label>Enter Website URL or Text:</label>
             <input type="text" id="qrInput" placeholder="https://seotoolshub.netlify.app">
             <button onclick="generateQR()">Generate QR Code</button>
             <div id="qrOutput" style="margin-top:15px; text-align:center;"></div>
@@ -234,7 +277,7 @@
 
     </div>
 
-    <!-- Working Footer Links -->
+    <!-- Active Footer Links for AdSense Approval -->
     <footer>
         <a href="javascript:void(0)" onclick="openModal('about')">About Us</a> | 
         <a href="javascript:void(0)" onclick="openModal('privacy')">Privacy Policy</a> | 
@@ -243,7 +286,7 @@
         <p style="margin-top:15px;">© 2026 SEO Tools Hub. All rights reserved.</p>
     </footer>
 
-    <!-- Modal Box for Footer Links -->
+    <!-- Modal Box for Links -->
     <div id="infoModal" class="modal-overlay">
         <div class="modal-box">
             <button class="close-btn" onclick="closeModal()">&times;</button>
@@ -261,18 +304,32 @@
             document.getElementById('outputMeta').innerText = code;
         }
 
-        // Tool 2: Word Counter
-        function countWords() {
-            const text = document.getElementById('counterInput').value.trim();
-            const words = text ? text.split(/\s+/).length : 0;
-            document.getElementById('wordCount').innerText = words;
-            document.getElementById('charCount').innerText = text.length;
+        // Tool 2: OG Generator
+        function generateOG() {
+            const title = document.getElementById('ogTitle').value || 'Title';
+            const img = document.getElementById('ogImage').value || '';
+            const url = document.getElementById('ogUrl').value || '';
+            const code = `<meta property="og:title" content="${title}">\n<meta property="og:image" content="${img}">\n<meta property="og:url" content="${url}">\n<meta property="og:type" content="website">`;
+            document.getElementById('ogOutput').innerText = code;
         }
 
-        // Tool 3: Password Generator
+        // Tool 3: Text Analyzer
+        function analyzeText() {
+            const text = document.getElementById('analyzerInput').value.trim();
+            const words = text ? text.split(/\s+/).length : 0;
+            const sentences = text ? text.split(/[.!?]+/).filter(Boolean).length : 0;
+            const readTime = Math.ceil(words / 200);
+
+            document.getElementById('wCount').innerText = words;
+            document.getElementById('cCount').innerText = text.length;
+            document.getElementById('sCount').innerText = sentences;
+            document.getElementById('rTime').innerText = readTime + " min";
+        }
+
+        // Tool 4: Password Generator
         function generatePassword() {
-            const len = parseInt(document.getElementById('passLength').value) || 12;
-            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+            const len = parseInt(document.getElementById('passLength').value) || 16;
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=";
             let pass = "";
             for (let i = 0; i < len; i++) {
                 pass += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -280,7 +337,7 @@
             document.getElementById('passOutput').innerText = pass;
         }
 
-        // Tool 4: Case Converter
+        // Tool 5: Case Converter
         function convertCase(type) {
             let input = document.getElementById('caseInput');
             if (type === 'upper') input.value = input.value.toUpperCase();
@@ -288,16 +345,19 @@
             if (type === 'title') {
                 input.value = input.value.toLowerCase().replace(/(?:^|\s)\w/g, match => match.toUpperCase());
             }
+            if (type === 'clean') {
+                input.value = input.value.replace(/\s+/g, ' ').trim();
+            }
         }
 
-        // Tool 5: HTML Minifier
+        // Tool 6: HTML Minifier
         function minifyHTML() {
             let html = document.getElementById('htmlInput').value;
             let minified = html.replace(/\s+/g, ' ').replace(/>\s+</g, '><').trim();
             document.getElementById('htmlOutput').innerText = minified;
         }
 
-        // Tool 6: URL Encoder/Decoder
+        // Tool 7: URL Encoder/Decoder
         function encodeURL() {
             let val = document.getElementById('urlInput').value;
             document.getElementById('urlOutput').innerText = encodeURIComponent(val);
@@ -311,38 +371,50 @@
             }
         }
 
-        // Tool 7: QR Code Generator
+        // Tool 8: Robots.txt Generator
+        function generateRobots() {
+            const policy = document.getElementById('robotsPolicy').value;
+            const sitemap = document.getElementById('sitemapUrl').value.trim();
+            let code = "User-agent: *\n";
+            code += (policy === 'allow') ? "Allow: /\n" : "Disallow: /\n";
+            if (sitemap) {
+                code += `Sitemap: ${sitemap}\n`;
+            }
+            document.getElementById('robotsOutput').innerText = code;
+        }
+
+        // Tool 9: QR Generator
         function generateQR() {
             let val = document.getElementById('qrInput').value.trim();
             if(!val) { alert("Please enter text or URL"); return; }
-            let qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(val)}`;
-            document.getElementById('qrOutput').innerHTML = `<img src="${qrUrl}" alt="QR Code" style="border:1px solid #ccc; padding:5px; background:#fff;">`;
+            let qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(val)}`;
+            document.getElementById('qrOutput').innerHTML = `<img src="${qrUrl}" alt="QR Code" style="border:1px solid #ccc; padding:8px; background:#fff; border-radius:6px;">`;
         }
 
-        // Modal Content Data (Updated with Details)
+        // Footer Pages Modal Data
         const pagesData = {
             about: `
                 <h2 style="color:#0d6efd;">About Us</h2>
-                <p>Welcome to <strong>SEO Tools Hub</strong>, owned and operated by <strong>Waleed Anjum</strong>. We provide free, fast, and lightweight webmaster utilities to help site owners, marketers, and developers optimize their online presence.</p>
-                <p>Our tools require no installation, registration, or software downloads. Everything runs instantly in your web browser.</p>
+                <p>Welcome to <strong>SEO Tools Hub</strong>, owned and operated by <strong>Waleed Anjum</strong>. We provide free, fast, and powerful webmaster utilities to help site owners, marketers, and developers optimize their online presence.</p>
+                <p>Our tools require no installation or downloads and run smoothly in any browser.</p>
             `,
             privacy: `
                 <h2 style="color:#0d6efd;">Privacy Policy</h2>
-                <p>At <strong>SEO Tools Hub</strong> (seotoolshub.netlify.app), visitor privacy is one of our top priorities. This Privacy Policy details the types of information collected and recorded by our platform.</p>
+                <p>At <strong>SEO Tools Hub</strong> (seotoolshub.netlify.app), visitor privacy is our top priority. This document outlines how data is handled.</p>
                 <h3>Log Files & Cookies</h3>
-                <p>Like most web platforms, SEO Tools Hub uses log files and standard cookies to improve user experience and monitor overall traffic patterns.</p>
+                <p>SEO Tools Hub uses standard log files and cookies to enhance user experience and monitor site traffic.</p>
                 <h3>Google DoubleClick DART Cookie</h3>
                 <p>Google is a third-party vendor on our site. It uses DART cookies to serve ads to our visitors based upon their visit to our website and other sites across the internet.</p>
             `,
             terms: `
                 <h2 style="color:#0d6efd;">Terms & Conditions</h2>
-                <p>By using <strong>SEO Tools Hub</strong>, you agree to comply with our Terms of Service. All tools are free to use for personal or commercial optimization purposes.</p>
+                <p>By accessing <strong>SEO Tools Hub</strong>, you agree to our terms. All tools are free for personal or commercial optimization use.</p>
                 <h3>Disclaimer</h3>
-                <p>All utilities are provided "as is" without warranty of any kind. We are not responsible for any issues resulting from the use of generated codes or URLs.</p>
+                <p>Utilities are provided "as is" without warranty of any kind.</p>
             `,
             contact: `
                 <h2 style="color:#0d6efd;">Contact Us</h2>
-                <p>Have questions, feedback, or need support? Reach out to us directly:</p>
+                <p>Feel free to get in touch with us directly:</p>
                 <ul style="list-style:none; padding:0; line-height:2;">
                     <li><strong>Owner:</strong> Waleed Anjum</li>
                     <li><strong>Email:</strong> <a href="mailto:waleedanjum.18@gmail.com">waleedanjum.18@gmail.com</a></li>
@@ -352,7 +424,6 @@
             `
         };
 
-        // Modal Functions
         function openModal(page) {
             document.getElementById('modalContent').innerHTML = pagesData[page];
             document.getElementById('infoModal').style.display = 'flex';

@@ -3,442 +3,740 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO Tools Hub - Free Webmaster & SEO Tools</title>
+    
+    <!-- Google Search Console Verification Tag -->
     <meta name="google-site-verification" content="ScHiOktkPwXPt0yW6OQJfLK_vHFIVvjUv_TrdYf6b3E" />
+    
+    <!-- Google AdSense Verification & Ad Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5281431128852435"
+     crossorigin="anonymous"></script>
 
-    <!-- Google AdSense Script (Active) -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5281431128852435" crossorigin="anonymous"></script>
-
+    <title>SEO & Daily Utility Hub - 16 Free Online Tools & Calculators</title>
+    <meta name="description" content="Free online SEO, text processing, developer, and daily utility tools. Fast, accurate, and easy-to-use web utilities with complete user guides.">
+    
     <style>
-        * { box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #212529;
+        :root {
+            --bg-color: #0D1117;
+            --card-bg: #161B22;
+            --text-main: #E6EDF3;
+            --text-muted: #8B949E;
+            --accent-cyan: #00F0FF;
+            --accent-green: #10B981;
+            --border-color: #30363D;
+            --input-bg: #21262D;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        .header {
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        header {
             text-align: center;
-            padding: 20px 0 30px;
+            padding: 40px 20px;
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
         }
-        .header h1 {
-            font-size: 32px;
-            color: #0d6efd;
-            margin-bottom: 5px;
+
+        header h1 {
+            color: var(--accent-cyan);
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .header p {
-            color: #6c757d;
-            font-size: 16px;
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
         }
+
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-        }
-        .card {
-            background: #ffffff;
-            border: 1px solid #e3e6f0;
-            border-radius: 8px;
             padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
         }
-        .card h2 {
-            font-size: 20px;
-            margin-top: 0;
+
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tool-card h2 {
+            color: var(--accent-cyan);
+            font-size: 1.3rem;
             margin-bottom: 15px;
-            color: #333;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
         label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            font-size: 14px;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
-        input, textarea, select {
+
+        input[type="text"], input[type="number"], textarea, select {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ced4da;
+            background-color: var(--input-bg);
+            border: 1px solid var(--border-color);
             border-radius: 6px;
-            margin-bottom: 15px;
-            font-size: 14px;
+            color: var(--text-main);
+            font-size: 1rem;
+            outline: none;
         }
-        .btn-group {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 10px;
+
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--accent-cyan);
         }
-        button {
-            background-color: #0d6efd;
-            color: white;
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .btn {
+            background-color: var(--accent-green);
+            color: #000;
+            font-weight: bold;
             border: none;
             padding: 10px 18px;
             border-radius: 6px;
             cursor: pointer;
-            font-weight: 600;
-            font-size: 14px;
+            width: 100%;
+            font-size: 1rem;
+            transition: opacity 0.2s ease;
+            margin-top: 10px;
         }
-        button:hover {
-            background-color: #0b5ed7;
+
+        .btn:hover {
+            opacity: 0.9;
         }
-        .result-box {
-            background-color: #f1f3f5;
+
+        .output-box {
+            margin-top: 15px;
             padding: 12px;
+            background-color: var(--input-bg);
+            border: 1px dashed var(--border-color);
             border-radius: 6px;
-            font-family: monospace;
-            white-space: pre-wrap;
+            font-size: 0.95rem;
             word-break: break-all;
             min-height: 40px;
-            border: 1px solid #dee2e6;
         }
 
-        /* Footer Styling */
+        /* Comprehensive SEO Content Section under tools */
+        .seo-guide {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .seo-guide h3 {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+
+        .seo-guide p {
+            margin-bottom: 8px;
+        }
+
         footer {
             text-align: center;
+            padding: 30px;
             margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #dee2e6;
-            color: #6c757d;
-            font-size: 14px;
-        }
-        footer a {
-            color: #0d6efd;
-            text-decoration: none;
-            margin: 0 8px;
-            font-weight: 500;
-        }
-        footer a:hover {
-            text-decoration: underline;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        /* Modal Overlay & Box */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 99999;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+        @media (max-width: 600px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
         }
-        .modal-box {
-            background: #ffffff;
-            border-radius: 8px;
-            max-width: 650px;
-            width: 100%;
-            max-height: 85vh;
-            overflow-y: auto;
-            padding: 25px;
-            position: relative;
-            line-height: 1.6;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        }
-        .close-btn {
-            position: absolute;
-            top: 15px; right: 15px;
-            border: none;
-            background: #e9ecef;
-            border-radius: 50%;
-            width: 30px; height: 30px;
-            cursor: pointer;
-            font-weight: bold;
-            color: #495057;
-        }
-        .close-btn:hover { background: #dee2e6; }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>SEO Tools Hub</h1>
-        <p>Your Powerful All-in-One Online Webmaster Suite</p>
-    </div>
+    <header>
+        <h1>⚡ SEO & Daily Utility Hub</h1>
+        <p>16 High-Performance Webmaster Tools, Text Utilities & Calculators</p>
+    </header>
 
     <div class="container">
-
-        <!-- Tool 1: Meta Tag Generator -->
-        <div class="card">
-            <h2>1. Meta Tag Generator</h2>
-            <label>Site Title</label>
-            <input type="text" id="siteTitle" placeholder="Example: My Awesome Website">
-            
-            <label>Site Description</label>
-            <textarea id="siteDesc" rows="2" placeholder="Brief summary of your website content..."></textarea>
-            
-            <label>Keywords (Comma Separated)</label>
-            <input type="text" id="siteKeywords" placeholder="seo tools, online generator, webmaster">
-            
-            <button onclick="generateMeta()">Generate Meta Tags</button>
-            
-            <label style="margin-top:15px;">Generated Code:</label>
-            <div id="outputMeta" class="result-box">Click button to generate code...</div>
+        
+        <div class="category-filter">
+            <button class="filter-btn active" onclick="filterCategory('all')">All Tools</button>
+            <button class="filter-btn" onclick="filterCategory('seo')">SEO & Web</button>
+            <button class="filter-btn" onclick="filterCategory('text')">Text Tools</button>
+            <button class="filter-btn" onclick="filterCategory('calc')">Calculators</button>
+            <button class="filter-btn" onclick="filterCategory('dev')">Developer</button>
         </div>
 
-        <!-- Tool 2: Open Graph (Social Media) Generator -->
-        <div class="card">
-            <h2>2. Open Graph Tag Generator (Facebook/LinkedIn)</h2>
-            <label>Page Title</label>
-            <input type="text" id="ogTitle" placeholder="Article or Page Title">
-            <label>Image URL (OG Image)</label>
-            <input type="text" id="ogImage" placeholder="https://example.com/image.jpg">
-            <label>Page URL</label>
-            <input type="text" id="ogUrl" placeholder="https://example.com/page">
-            <button onclick="generateOG()">Generate OG Tags</button>
-            <label style="margin-top:15px;">Result:</label>
-            <div id="ogOutput" class="result-box">Generated Open Graph code will appear here...</div>
-        </div>
+        <div class="tools-grid">
 
-        <!-- Tool 3: Word, Sentence & Reading Time Counter -->
-        <div class="card">
-            <h2>3. Advanced Text & Reading Time Analyzer</h2>
-            <label>Enter or Paste Your Article:</label>
-            <textarea id="analyzerInput" rows="5" oninput="analyzeText()" placeholder="Paste text to analyze..."></textarea>
-            <p>
-                <strong>Words:</strong> <span id="wCount">0</span> | 
-                <strong>Characters:</strong> <span id="cCount">0</span> | 
-                <strong>Sentences:</strong> <span id="sCount">0</span> | 
-                <strong>Est. Read Time:</strong> <span id="rTime">0 min</span>
-            </p>
-        </div>
-
-        <!-- Tool 4: Password Generator -->
-        <div class="card">
-            <h2>4. Secure Password Generator</h2>
-            <label>Password Length (6 to 64)</label>
-            <input type="number" id="passLength" value="16" min="6" max="64">
-            <button onclick="generatePassword()">Generate Strong Password</button>
-            <label style="margin-top:15px;">Generated Password:</label>
-            <div id="passOutput" class="result-box">Your secure password will appear here...</div>
-        </div>
-
-        <!-- Tool 5: Multi-Format Text Converter -->
-        <div class="card">
-            <h2>5. Text Case & Formatting Converter</h2>
-            <label>Enter Text:</label>
-            <textarea id="caseInput" rows="3" placeholder="Type or paste text..."></textarea>
-            <div class="btn-group">
-                <button onclick="convertCase('upper')">UPPERCASE</button>
-                <button onclick="convertCase('lower')">lowercase</button>
-                <button onclick="convertCase('title')">Title Case</button>
-                <button onclick="convertCase('clean')">Remove Extra Spaces</button>
+            <!-- Tool 1: Meta Tag Generator -->
+            <div class="tool-card" data-cat="seo">
+                <div>
+                    <h2>🔍 Meta Tag Generator</h2>
+                    <div class="input-group">
+                        <label>Site Title</label>
+                        <input type="text" id="meta-title" placeholder="e.g. My Awesome Website">
+                    </div>
+                    <div class="input-group">
+                        <label>Site Description</label>
+                        <textarea id="meta-desc" placeholder="Brief description of your site..."></textarea>
+                    </div>
+                    <button class="btn" onclick="generateMeta()">Generate Tags</button>
+                    <div class="output-box" id="meta-output">Click generate to view code...</div>
+                </div>
+                <div class="seo-guide">
+                    <h3>About Meta Tag Generator</h3>
+                    <p>Meta tags are snippets of text that describe a page's content; they don't appear on the page itself, but only in the page's code. Search engines like Google use meta tags to display snippet information in search results, directly impacting click-through rates (CTR).</p>
+                    <p><strong>How to use:</strong> Enter your site title and a compelling description containing key terms. Copy the generated HTML tags and paste them inside the &lt;head&gt; section of your website source code.</p>
+                </div>
             </div>
-        </div>
 
-        <!-- Tool 6: HTML Minifier & Cleaner -->
-        <div class="card">
-            <h2>6. HTML Minifier & Code Optimizer</h2>
-            <label>Paste Raw HTML Code:</label>
-            <textarea id="htmlInput" rows="4" placeholder="<div>\n <p>Sample Code</p>\n</div>"></textarea>
-            <button onclick="minifyHTML()">Minify HTML</button>
-            <label style="margin-top:15px;">Compressed Code:</label>
-            <div id="htmlOutput" class="result-box">Minified output will appear here...</div>
-        </div>
-
-        <!-- Tool 7: URL Encoder & Decoder -->
-        <div class="card">
-            <h2>7. URL Encoder & Decoder</h2>
-            <label>Enter URL or Query String:</label>
-            <input type="text" id="urlInput" placeholder="https://seotoolshub.netlify.app?test=1">
-            <div class="btn-group">
-                <button onclick="encodeURL()">Encode URL</button>
-                <button onclick="decodeURL()">Decode URL</button>
+            <!-- Tool 2: Word & Character Counter -->
+            <div class="tool-card" data-cat="text">
+                <div>
+                    <h2>📝 Word & Character Counter</h2>
+                    <div class="input-group">
+                        <label>Your Text</label>
+                        <textarea id="word-input" oninput="countWords()" placeholder="Type or paste content here..."></textarea>
+                    </div>
+                    <div class="output-box" id="word-output">Words: 0 | Characters: 0</div>
+                </div>
+                <div class="seo-guide">
+                    <h3>About Word & Character Counter</h3>
+                    <p>Accurate word and character counts are essential for content writers, students, and SEO specialists. Search engines evaluate article length for depth, while social platforms impose strict character limits (e.g., X/Twitter or Meta titles under 60 characters).</p>
+                    <p><strong>How to use:</strong> Simply paste or type your draft into the input field above. The tool updates counts instantly, helping you optimize lengths without exceeding maximum thresholds.</p>
+                </div>
             </div>
-            <label style="margin-top:15px;">Result:</label>
-            <div id="urlOutput" class="result-box">Result will appear here...</div>
-        </div>
 
-        <!-- Tool 8: Robots.txt File Generator -->
-        <div class="card">
-            <h2>8. Robots.txt Generator</h2>
-            <label>Default User Agent Policy</label>
-            <select id="robotsPolicy">
-                <option value="allow">Allow All Search Engines</option>
-                <option value="disallow">Block All Search Engines</option>
-            </select>
-            <label>Sitemap URL (Optional)</label>
-            <input type="text" id="sitemapUrl" placeholder="https://example.com/sitemap.xml">
-            <button onclick="generateRobots()">Generate Robots.txt</button>
-            <label style="margin-top:15px;">Robots.txt Content:</label>
-            <div id="robotsOutput" class="result-box">Generated robots.txt content will appear here...</div>
-        </div>
+            <!-- Tool 3: Robots.txt Generator -->
+            <div class="tool-card" data-cat="seo">
+                <div>
+                    <h2>🤖 Robots.txt Generator</h2>
+                    <div class="input-group">
+                        <label>User Agent</label>
+                        <input type="text" id="robot-agent" value="*">
+                    </div>
+                    <div class="input-group">
+                        <label>Disallow Path</label>
+                        <input type="text" id="robot-disallow" placeholder="e.g. /admin/">
+                    </div>
+                    <button class="btn" onclick="genRobots()">Generate File</button>
+                    <div class="output-box" id="robot-output">Output will appear here...</div>
+                </div>
+                <div class="seo-guide">
+                    <h3>About Robots.txt Generator</h3>
+                    <p>A robots.txt file instructs web robots (typically search engine crawlers) about which pages or files they can or can't request from your site. This prevents crawl budget waste on private admin panels or temporary directories.</p>
+                    <p><strong>How to use:</strong> Define the targeted user-agent (use * for all bots) and specify paths you wish to block. Generate and save the file as robots.txt in your web root folder.</p>
+                </div>
+            </div>
 
-        <!-- Tool 9: High-Resolution QR Code Generator -->
-        <div class="card">
-            <h2>9. QR Code Generator</h2>
-            <label>Enter Website URL or Text:</label>
-            <input type="text" id="qrInput" placeholder="https://seotoolshub.netlify.app">
-            <button onclick="generateQR()">Generate QR Code</button>
-            <div id="qrOutput" style="margin-top:15px; text-align:center;"></div>
-        </div>
+            <!-- Tool 4: BMI Calculator -->
+            <div class="tool-card" data-cat="calc">
+                <div>
+                    <h2>⚖️ BMI Calculator</h2>
+                    <div class="input-group">
+                        <label>Weight (kg)</label>
+                        <input type="number" id="bmi-weight" placeholder="70">
+                    </div>
+                    <div class="input-group">
+                        <label>Height (cm)</label>
+                        <input type="number" id="bmi-height" placeholder="175">
+                    </div>
+                    <button class="btn" onclick="calcBMI()">Calculate BMI</button>
+                    <div class="output-box" id="bmi-output">Enter details above...</div>
+                </div>
+                <div class="seo-guide">
+                    <h3>About Body Mass Index (BMI)</h3>
+                    <p>Body Mass Index (BMI) is a standardized screening metric used globally to categorize adult body mass relative to height. It helps identify potential weight categories that may lead to health complications.</p>
+                    <p><strong>How to use:</strong> Input your total weight in kilograms alongside your height in centimeters. Click Calculate to determine your score: Underweight (&lt;18.5), Normal (18.5-24.9), Overweight (25-29.9), or Obese (30+).</p>
+                </div>
+            </div>
 
+            <!-- Tool 5: Base64 Encoder/Decoder -->
+            <div class="tool-card" data-cat="dev">
+                <div>
+                    <h2>🔐 Base64 Encoder / Decoder</h2>
+                    <div class="input-group">
+                        <label>Text</label>
+                        <textarea id="base64-input" placeholder="Enter text to convert..."></textarea>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn" onclick="encodeBase64()">Encode</button>
+                        <button class="btn" style="background-color: var(--accent-cyan);" onclick="decodeBase64()">Decode</button>
+                    </div>
+                    <div class="output-box" id="base64-output">Result...</div>
+                </div>
+                <div class="seo-guide">
+                    <h3>About Base64 Conversion</h3>
+                    <p>Base64 is a binary-to-text encoding scheme designed to translate binary data into an ASCII string format. It is widely used in email communications, web development, and embedding images directly inside HTML or CSS stylesheets.</p>
+                    <p><strong>How to use:</strong> Paste plain text to encode it into a safe Base64 format, or paste an encoded Base64 string to decode it back into readable text format instantly.</p>
+                </div>
+            </div>
+
+            <!-- Tool 6: Case Converter -->
+            <div class="tool-card" data-cat="text">
+                <div>
+                    <h2>🔤 Text Case Converter</h2>
+                    <div class="input-group">
+                        <label>Input Text</label>
+                        <textarea id="case-input" placeholder="Enter text..."></textarea>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+                        <button class="btn" onclick="convertCase('upper')">UPPERCASE</button>
+                        <button class="btn" onclick="convertCase('lower')">lowercase</button>
+                        <button class="btn" onclick="convertCase('title')">Title Case</button>
+                        <button class="btn" onclick="convertCase('sentence')">Sentence case</button>
+                    </div>
+                    <div class="output-box" id="case-output">Transformed text...</div>
+                </div>
+                <div class="seo-guide">
+                    <h3>About Text Case Converter</h3>
+                    <p>Inconsistent text formatting can degrade content readability and professional presentation. Text case converters quickly adjust capitalization across large paragraphs without manual re-typing.</p>
+                    <p><strong>How to use:</strong> Paste your unformatted text and click your preferred target format: UPPERCASE for titles, lowercase for emails, Title Case for headlines, or Sentence case for standard paragraphs.</p>
+                </div>
+            </div>
+
+            <!-- Tool 7: Percentage Calculator -->
+            <div class="tool-card" data-cat="calc">
+                <div>
+                    <h2>📊 Percentage Calculator</h2>
+                    <div class="input-group">
+                        <label>What is</label>
+                        <input type="number" id="perc-val" placeholder="e.g. 20">
+                    </div>
+                    <div class="input-group">
+                        <label>% of</label>
+                        <input type="number" id="perc-total" placeholder="e.g. 150">
+                    </div>
+                    <button class="btn" onclick="calcPercentage()">Calculate</button>
+                    <div class="output-box" id="perc-output">Result...</div>
+                </div>
+                <div class="seo-guide">
+                    <h3>About Percentage Calculations</h3>
+                    <p>Percentage calculations are essential for tracking statistical changes, financial markups, store discounts, tax calculations, and academic grade assessments.</p>
+                    <p><strong>How to use:</strong> Enter the percentage rate you wish to find in the first box, and the principal base figure in the second box. Click calculate to receive instant numerical results.</p>
+                </div>
+            </div>
+
+            <!-- Tool 8: Open Graph Generator -->
+            <div class="tool-card" data-cat="seo">
+                <div>
+                    <h2>🌐 Open Graph Generator</h2>
+                    <div class="input-group">
+                        <label>OG Title</label>
+                        <input type="text" id="og-title" placeholder="Social Media Title">
+                    </div>
+                    <div class="input-group">
+                        <label>OG Image URL</label>
+                        <input type="text" id="og-img" placeholder="https://site.com/image.jpg">
+                    </div>
+                    <button class="btn" onclick="genOG()">Generate OG Tags</button>
+                    <div class="output-box" id="og-output">Code snippet...</div>
+                </div>
+                <div class="seo-guide">
+                    <h3>About Open Graph Meta Tags</h3>
+                    <p>Open Graph (OG) meta tags govern how URLs are displayed when shared across major social networks like Facebook, LinkedIn, and WhatsApp. Custom OG tags ensure accurate titles, descriptions, and preview thumbnails display correctly.</p>
+                    <p><strong>How to use:</strong> Enter your desired page share title and a direct image preview link. Copy the generated &lt;meta property="og:..."&gt; tags directly into your site HTML head block.</p>
+                </div>
+            </div>
+
+            <!-- Tool 9: HTML Entity Encoder/Decoder -->
+            <div class="tool-card" data-cat="dev">
+                <div>
+                    <h2>🏷️ HTML Entity Encoder</h2>
+                    <div class="input-group">
+                        <label>HTML Code</label>
+                        <textarea id="html-input" placeholder="e.g. <script>alert('x')</script>"></textarea>
+                    </div>
+                    <button class="btn" onclick="encodeHTML()">Encode HTML</button>
+                    <div class="output-box" id="html-output">Encoded output...</div>
+                </div>
+                <div class="seo-guide">
+                    <h3>About HTML Entities</h3>
+                    <p>HTML entity encoding converts special characters (like &lt;, &gt;, and &amp;) into safe character entities. This prevents web browsers from interpreting user inputs as active code, helping protect applications against Cross-Site Scripting (XSS) risks.</p>
+                    <p><strong>How to use:</strong> Paste code snippets containing special symbols into the box and generate safe encoded entities for documentation or code displaying purposes.</p>
+                </div>
+            </div>
+
+            <!-- Tool 10: Duplicate Line Remover -->
+            <div class="tool-card" data-cat="text">
+                <div>
+                    <h2>🧹 Duplicate Line Remover</h2>
+                    <div class="input-group">
+                        <label>Text List</label>
+                        <textarea id="dup-input" placeholder="Paste list with duplicate lines..."></textarea>
+                    </div>
+                    <button class="btn" onclick="removeDuplicates()">Remove Duplicates</button>
+                    <div class="output-box" id="dup-output">Cleaned list...</div>
+                </div>
+                <div class="seo-guide">
+                    <h3>About List Cleaners</h3>
+                    <p>Managing large lists, keyword databases, or email directories often results in redundant entries. Sorting lists manually consumes unnecessary time and leads to operational errors.</p>
+                    <p><strong>How to use:</strong> Paste your raw multi-line list into the text area. Click the clean button to immediately strip duplicate lines while retaining original formatting.</p>
+                </div>
+            </div>
+
+            <!-- Tool 11: Simple Interest Calculator -->
+            <div class="tool-card" data-cat="calc">
+                <div>
+                    <h2>💰 Simple Interest Calculator</h2>
+                    <div class="input-group">
+                        <label>Principal Amount ($)</label>
+                        <input type="number" id="int-p" placeholder="1000">
+                    </div>
+                    <div class="input-group">
+                        <label>Annual Interest Rate (%)</label>
+                        <input type="number" id="int-r" placeholder="5">
+                    </div>
+                    <div class="input-group">
+                        <label>Time (Years)</label>
+                        <input type="number" id="int-t" placeholder="2">
+                    </div>
+                    <button class="btn" onclick="calcInterest()">Calculate Interest</button>
+                    <div class="output-box" id="int-output">Total Interest...</div>
+                </div>
+                <div class="seo-guide">
+                    <h3>About Simple Interest Formula</h3>
+                    <p>Simple interest is an efficient method to calculate charges on loans or earnings on savings accounts over defined durations. It utilizes the fundamental formula: Interest = Principal × Rate × Time / 100.</p>
+                    <p><strong>How to use:</strong> Enter the initial principal amount, target interest percentage, and loan tenure in years to compute total accrued interest payouts.</p>
+                </div>
+            </div>
+
+            <!-- Tool 12: URL Encoder / Decoder -->
+            <div class="tool-card" data-cat="dev">
+                <div>
+                    <h2>🔗 URL Encoder / Decoder</h2>
+                    <div class="input-group">
+                        <label>URL String</label>
+                        <textarea id="url-input" placeholder="https://example.com/search?q=test string"></textarea>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn" onclick="encodeURL()">Encode</button>
+                        <button class="btn" style="background-color: var(--accent-cyan);" onclick="decodeURL()">Decode</button>
+                    </div>
+                    <div class="output-box" id="url-output">Result...</div>
+                </div>
+                <div class="seo-guide">
+                    <h3>About URL Percent-Encoding</h3>
+                    <p>URL encoding converts illegal characters into valid ASCII formats accepted by web browsers. Spaces and non-alphanumeric characters are mapped using % symbol formats to prevent broken web request links.</p>
+                    <p><strong>How to use:</strong> Input raw URLs with parameters to convert special characters safely, or paste encoded URLs to convert percent codes back into plain text links.</p>
+                </div>
+            </div>
+
+            <!-- Tool 13: Random Password Generator -->
+            <div class="tool-card" data-cat="dev">
+                <div>
+                    <h2>🔑 Secure Password Generator</h2>
+                    <div class="input-group">
+                        <label>Password Length</label>
+                        <input type="number" id="pass-len" value="12" min="6" max="32">
+                    </div>
+                    <button class="btn" onclick="genPassword()">Generate Password</button>
+                    <div class="output-box" id="pass-output">Random password...</div>
+                </div>
+                <div class="seo-guide">
+                    <h3>About Password Security</h3>
+                    <p>Using weak passwords leaves online accounts vulnerable to brute-force automated dictionary hacks. Strong credentials require combinations of upper and lowercase letters, numbers, and special symbols.</p>
+                    <p><strong>How to use:</strong> Select desired character length (12+ recommended) and generate cryptographic passwords for high security across personal logins.</p>
+                </div>
+            </div>
+
+            <!-- Tool 14: Slug Generator -->
+            <div class="tool-card" data-cat="seo">
+                <div>
+                    <h2>🔗 URL Slug Generator</h2>
+                    <div class="input-group">
+                        <label>Article / Page Title</label>
+                        <input type="text" id="slug-input" placeholder="e.g. 10 Tips for Better SEO in 2026">
+                    </div>
+                    <button class="btn" onclick="genSlug()">Create Slug</button>
+                    <div class="output-box" id="slug-output">url-friendly-slug...</div>
+                </div>
+                <div class="seo-guide">
+                    <h3>About Clean URL Slugs</h3>
+                    <p>A URL slug is the exact readable ending portion of a link address. Clean, keyword-focused slugs assist search engine crawlers in index categorization while improving overall user readability.</p>
+                    <p><strong>How to use:</strong> Paste your article headline above. The generator automatically converts text into lowercase, strips special symbols, and inserts hyphens between words.</p>
+                </div>
+            </div>
+
+            <!-- Tool 15: Discount Calculator -->
+            <div class="tool-card" data-cat="calc">
+                <div>
+                    <h2>🏷️ Shopping Discount Calculator</h2>
+                    <div class="input-group">
+                        <label>Original Price ($)</label>
+                        <input type="number" id="disc-price" placeholder="80">
+                    </div>
+                    <div class="input-group">
+                        <label>Discount Rate (%)</label>
+                        <input type="number" id="disc-rate" placeholder="25">
+                    </div>
+                    <button class="btn" onclick="calcDiscount()">Calculate Savings</button>
+                    <div class="output-box" id="disc-output">Final Price & Savings...</div>
+                </div>
+                <div class="seo-guide">
+                    <h3>About Savings Calculations</h3>
+                    <p>Determining net purchase values during seasonal retail sales helps buyers stay budget conscious and verify accurate pricing before checkout payments.</p>
+                    <p><strong>How to use:</strong> Type original product tag prices alongside percentage discount offers to view final reduced pricing and total saved money amounts.</p>
+                </div>
+            </div>
+
+            <!-- Tool 16: Lorem Ipsum Generator -->
+            <div class="tool-card" data-cat="text">
+                <div>
+                    <h2>📄 Lorem Ipsum Generator</h2>
+                    <div class="input-group">
+                        <label>Paragraphs</label>
+                        <input type="number" id="lorem-count" value="2" min="1" max="5">
+                    </div>
+                    <button class="btn" onclick="genLorem()">Generate Placeholder</button>
+                    <div class="output-box" id="lorem-output">Placeholder text...</div>
+                </div>
+                <div class="seo-guide">
+                    <h3>About Lorem Ipsum Dummy Text</h3>
+                    <p>Lorem Ipsum has served as standard dummy filler text across printing and design industries since the 1500s. It allows graphic designers and web developers to review visual layout structures before actual client copy is finalized.</p>
+                    <p><strong>How to use:</strong> Specify desired paragraph counts and generate sample text strings ready to copy-paste into graphic mockups or layout designs.</p>
+                </div>
+            </div>
+
+        </div>
     </div>
 
-    <!-- Active Footer Links for AdSense Approval -->
     <footer>
-        <a href="javascript:void(0)" onclick="openModal('about')">About Us</a> | 
-        <a href="javascript:void(0)" onclick="openModal('privacy')">Privacy Policy</a> | 
-        <a href="javascript:void(0)" onclick="openModal('terms')">Terms & Conditions</a> | 
-        <a href="javascript:void(0)" onclick="openModal('contact')">Contact Us</a>
-        <p style="margin-top:15px;">© 2026 SEO Tools Hub. All rights reserved.</p>
+        <p>&copy; 2026 SEO & Daily Utility Hub. All Rights Reserved. Built for Speed and Privacy.</p>
     </footer>
 
-    <!-- Modal Box for Links -->
-    <div id="infoModal" class="modal-overlay">
-        <div class="modal-box">
-            <button class="close-btn" onclick="closeModal()">&times;</button>
-            <div id="modalContent"></div>
-        </div>
-    </div>
-
+    <!-- Functional Scripts -->
     <script>
-        // Tool 1: Meta Tag Generator
+        // Category Filtering Functionality
+        function filterCategory(cat) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            document.querySelectorAll('.tool-card').forEach(card => {
+                if(cat === 'all' || card.getAttribute('data-cat') === cat) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 1. Meta Tag Generator
         function generateMeta() {
-            const title = document.getElementById('siteTitle').value || 'My Website';
-            const desc = document.getElementById('siteDesc').value || '';
-            const keywords = document.getElementById('siteKeywords').value || '';
-            const code = `<meta name="title" content="${title}">\n<meta name="description" content="${desc}">\n<meta name="keywords" content="${keywords}">`;
-            document.getElementById('outputMeta').innerText = code;
+            const t = document.getElementById('meta-title').value;
+            const d = document.getElementById('meta-desc').value;
+            document.getElementById('meta-output').innerText = 
+                `<title>${t || 'Title'}</title>\n<meta name="description" content="${d || 'Description'}">`;
         }
 
-        // Tool 2: OG Generator
-        function generateOG() {
-            const title = document.getElementById('ogTitle').value || 'Title';
-            const img = document.getElementById('ogImage').value || '';
-            const url = document.getElementById('ogUrl').value || '';
-            const code = `<meta property="og:title" content="${title}">\n<meta property="og:image" content="${img}">\n<meta property="og:url" content="${url}">\n<meta property="og:type" content="website">`;
-            document.getElementById('ogOutput').innerText = code;
+        // 2. Word & Character Counter
+        function countWords() {
+            const txt = document.getElementById('word-input').value.trim();
+            const words = txt ? txt.split(/\s+/).length : 0;
+            const chars = txt.length;
+            document.getElementById('word-output').innerText = `Words: ${words} | Characters: ${chars}`;
         }
 
-        // Tool 3: Text Analyzer
-        function analyzeText() {
-            const text = document.getElementById('analyzerInput').value.trim();
-            const words = text ? text.split(/\s+/).length : 0;
-            const sentences = text ? text.split(/[.!?]+/).filter(Boolean).length : 0;
-            const readTime = Math.ceil(words / 200);
-
-            document.getElementById('wCount').innerText = words;
-            document.getElementById('cCount').innerText = text.length;
-            document.getElementById('sCount').innerText = sentences;
-            document.getElementById('rTime').innerText = readTime + " min";
+        // 3. Robots.txt Generator
+        function genRobots() {
+            const agent = document.getElementById('robot-agent').value || '*';
+            const dis = document.getElementById('robot-disallow').value || '';
+            document.getElementById('robot-output').innerText = `User-agent: ${agent}\nDisallow: ${dis}`;
         }
 
-        // Tool 4: Password Generator
-        function generatePassword() {
-            const len = parseInt(document.getElementById('passLength').value) || 16;
-            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=";
+        // 4. BMI Calculator
+        function calcBMI() {
+            const w = parseFloat(document.getElementById('bmi-weight').value);
+            const h = parseFloat(document.getElementById('bmi-height').value) / 100;
+            if (w > 0 && h > 0) {
+                const bmi = (w / (h * h)).toFixed(1);
+                let cat = 'Normal';
+                if(bmi < 18.5) cat = 'Underweight';
+                else if(bmi >= 25 && bmi < 30) cat = 'Overweight';
+                else if(bmi >= 30) cat = 'Obese';
+                document.getElementById('bmi-output').innerText = `BMI: ${bmi} (${cat})`;
+            } else {
+                document.getElementById('bmi-output').innerText = 'Please enter valid numbers.';
+            }
+        }
+
+        // 5. Base64 Converter
+        function encodeBase64() {
+            const txt = document.getElementById('base64-input').value;
+            document.getElementById('base64-output').innerText = btoa(txt);
+        }
+        function decodeBase64() {
+            try {
+                const txt = document.getElementById('base64-input').value;
+                document.getElementById('base64-output').innerText = atob(txt);
+            } catch(e) {
+                document.getElementById('base64-output').innerText = 'Invalid Base64 string!';
+            }
+        }
+
+        // 6. Case Converter
+        function convertCase(type) {
+            const txt = document.getElementById('case-input').value;
+            let res = txt;
+            if(type === 'upper') res = txt.toUpperCase();
+            if(type === 'lower') res = txt.toLowerCase();
+            if(type === 'title') res = txt.replace(/\w\S*/g, w => w.charAt(0).toUpperCase() + w.substr(1).toLowerCase());
+            if(type === 'sentence') res = txt.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g, c => c.toUpperCase());
+            document.getElementById('case-output').innerText = res;
+        }
+
+        // 7. Percentage Calculator
+        function calcPercentage() {
+            const v = parseFloat(document.getElementById('perc-val').value);
+            const t = parseFloat(document.getElementById('perc-total').value);
+            if(!isNaN(v) && !isNaN(t)) {
+                document.getElementById('perc-output').innerText = `${v}% of ${t} is ${(v/100)*t}`;
+            } else {
+                document.getElementById('perc-output').innerText = 'Enter valid values.';
+            }
+        }
+
+        // 8. OG Generator
+        function genOG() {
+            const t = document.getElementById('og-title').value;
+            const img = document.getElementById('og-img').value;
+            document.getElementById('og-output').innerText = `<meta property="og:title" content="${t}">\n<meta property="og:image" content="${img}">`;
+        }
+
+        // 9. HTML Entity Encoder
+        function encodeHTML() {
+            const txt = document.getElementById('html-input').value;
+            document.getElementById('html-output').innerText = txt.replace(/[\u00A0-\u9999<>\&]/g, i => '&#'+i.charCodeAt(0)+';');
+        }
+
+        // 10. Duplicate Line Remover
+        function removeDuplicates() {
+            const txt = document.getElementById('dup-input').value;
+            const lines = txt.split('\n');
+            const unique = [...new Set(lines)];
+            document.getElementById('dup-output').innerText = unique.join('\n');
+        }
+
+        // 11. Simple Interest
+        function calcInterest() {
+            const p = parseFloat(document.getElementById('int-p').value);
+            const r = parseFloat(document.getElementById('int-r').value);
+            const t = parseFloat(document.getElementById('int-t').value);
+            if(p && r && t) {
+                const interest = (p * r * t) / 100;
+                document.getElementById('int-output').innerText = `Interest: $${interest.toFixed(2)} | Total: $${(p + interest).toFixed(2)}`;
+            } else {
+                document.getElementById('int-output').innerText = 'Please fill all fields.';
+            }
+        }
+
+        // 12. URL Encoder/Decoder
+        function encodeURL() {
+            const txt = document.getElementById('url-input').value;
+            document.getElementById('url-output').innerText = encodeURIComponent(txt);
+        }
+        function decodeURL() {
+            const txt = document.getElementById('url-input').value;
+            document.getElementById('url-output').innerText = decodeURIComponent(txt);
+        }
+
+        // 13. Password Generator
+        function genPassword() {
+            const len = parseInt(document.getElementById('pass-len').value) || 12;
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
             let pass = "";
             for (let i = 0; i < len; i++) {
                 pass += chars.charAt(Math.floor(Math.random() * chars.length));
             }
-            document.getElementById('passOutput').innerText = pass;
+            document.getElementById('pass-output').innerText = pass;
         }
 
-        // Tool 5: Case Converter
-        function convertCase(type) {
-            let input = document.getElementById('caseInput');
-            if (type === 'upper') input.value = input.value.toUpperCase();
-            if (type === 'lower') input.value = input.value.toLowerCase();
-            if (type === 'title') {
-                input.value = input.value.toLowerCase().replace(/(?:^|\s)\w/g, match => match.toUpperCase());
-            }
-            if (type === 'clean') {
-                input.value = input.value.replace(/\s+/g, ' ').trim();
-            }
+        // 14. Slug Generator
+        function genSlug() {
+            const txt = document.getElementById('slug-input').value;
+            const slug = txt.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '');
+            document.getElementById('slug-output').innerText = slug;
         }
 
-        // Tool 6: HTML Minifier
-        function minifyHTML() {
-            let html = document.getElementById('htmlInput').value;
-            let minified = html.replace(/\s+/g, ' ').replace(/>\s+</g, '><').trim();
-            document.getElementById('htmlOutput').innerText = minified;
-        }
-
-        // Tool 7: URL Encoder/Decoder
-        function encodeURL() {
-            let val = document.getElementById('urlInput').value;
-            document.getElementById('urlOutput').innerText = encodeURIComponent(val);
-        }
-        function decodeURL() {
-            let val = document.getElementById('urlInput').value;
-            try {
-                document.getElementById('urlOutput').innerText = decodeURIComponent(val);
-            } catch(e) {
-                document.getElementById('urlOutput').innerText = "Invalid URL encoding";
+        // 15. Discount Calculator
+        function calcDiscount() {
+            const price = parseFloat(document.getElementById('disc-price').value);
+            const rate = parseFloat(document.getElementById('disc-rate').value);
+            if(price && rate) {
+                const savings = (price * rate) / 100;
+                const final = price - savings;
+                document.getElementById('disc-output').innerText = `Final Price: $${final.toFixed(2)} (You save $${savings.toFixed(2)})`;
+            } else {
+                document.getElementById('disc-output').innerText = 'Enter valid values.';
             }
         }
 
-        // Tool 8: Robots.txt Generator
-        function generateRobots() {
-            const policy = document.getElementById('robotsPolicy').value;
-            const sitemap = document.getElementById('sitemapUrl').value.trim();
-            let code = "User-agent: *\n";
-            code += (policy === 'allow') ? "Allow: /\n" : "Disallow: /\n";
-            if (sitemap) {
-                code += `Sitemap: ${sitemap}\n`;
-            }
-            document.getElementById('robotsOutput').innerText = code;
-        }
-
-        // Tool 9: QR Generator
-        function generateQR() {
-            let val = document.getElementById('qrInput').value.trim();
-            if(!val) { alert("Please enter text or URL"); return; }
-            let qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(val)}`;
-            document.getElementById('qrOutput').innerHTML = `<img src="${qrUrl}" alt="QR Code" style="border:1px solid #ccc; padding:8px; background:#fff; border-radius:6px;">`;
-        }
-
-        // Footer Pages Modal Data
-        const pagesData = {
-            about: `
-                <h2 style="color:#0d6efd;">About Us</h2>
-                <p>Welcome to <strong>SEO Tools Hub</strong>, owned and operated by <strong>Waleed Anjum</strong>. We provide free, fast, and powerful webmaster utilities to help site owners, marketers, and developers optimize their online presence.</p>
-                <p>Our tools require no installation or downloads and run smoothly in any browser.</p>
-            `,
-            privacy: `
-                <h2 style="color:#0d6efd;">Privacy Policy</h2>
-                <p>At <strong>SEO Tools Hub</strong> (seotoolshub.netlify.app), visitor privacy is our top priority. This document outlines how data is handled.</p>
-                <h3>Log Files & Cookies</h3>
-                <p>SEO Tools Hub uses standard log files and cookies to enhance user experience and monitor site traffic.</p>
-                <h3>Google DoubleClick DART Cookie</h3>
-                <p>Google is a third-party vendor on our site. It uses DART cookies to serve ads to our visitors based upon their visit to our website and other sites across the internet.</p>
-            `,
-            terms: `
-                <h2 style="color:#0d6efd;">Terms & Conditions</h2>
-                <p>By accessing <strong>SEO Tools Hub</strong>, you agree to our terms. All tools are free for personal or commercial optimization use.</p>
-                <h3>Disclaimer</h3>
-                <p>Utilities are provided "as is" without warranty of any kind.</p>
-            `,
-            contact: `
-                <h2 style="color:#0d6efd;">Contact Us</h2>
-                <p>Feel free to get in touch with us directly:</p>
-                <ul style="list-style:none; padding:0; line-height:2;">
-                    <li><strong>Owner:</strong> Waleed Anjum</li>
-                    <li><strong>Email:</strong> <a href="mailto:waleedanjum.18@gmail.com">waleedanjum.18@gmail.com</a></li>
-                    <li><strong>Phone:</strong> <a href="tel:+923336349195">00923336349195</a></li>
-                    <li><strong>Website:</strong> seotoolshub.netlify.app</li>
-                </ul>
-            `
-        };
-
-        function openModal(page) {
-            document.getElementById('modalContent').innerHTML = pagesData[page];
-            document.getElementById('infoModal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('infoModal').style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('infoModal');
-            if (event.target === modal) {
-                closeModal();
-            }
+        // 16. Lorem Ipsum Generator
+        function genLorem() {
+            const count = parseInt(document.getElementById('lorem-count').value) || 1;
+            const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ";
+            document.getElementById('lorem-output').innerText = lorem.repeat(count);
         }
     </script>
 </body>
